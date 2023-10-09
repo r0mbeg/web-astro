@@ -12,10 +12,6 @@ public class Galaxy {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
-
     @NotBlank(message = "Name is mandatory")
     private String name;
 
@@ -25,6 +21,9 @@ public class Galaxy {
 
     private String distance;
 
+    public Long getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }

@@ -23,7 +23,7 @@ public class GalaxyController {
 
     @GetMapping("/add/galaxy")
     public String addGalaxy(Model model) {
-        return "add-galaxy";
+        return "add/add-galaxy";
     }
 
     @PostMapping("/add/galaxy")
@@ -49,31 +49,31 @@ public class GalaxyController {
             galaxies = galaxyRepo.findAll();
         }
         model.addAttribute("galaxies", galaxies);
-        return "find-galaxy";
+        return "find/find-galaxy";
     }
 
     @GetMapping("/find/galaxy/{id}")
     private String detailsGalaxy(@PathVariable(value = "id") long id, Model model){
         if(!galaxyRepo.existsById(id)) {
-            return "find-galaxy";
+            return "find/find-galaxy";
         }
         Optional<Galaxy> galaxy = galaxyRepo.findById(id);
         ArrayList<Galaxy> res = new ArrayList<>();
         galaxy.ifPresent(res::add);
         model.addAttribute("galaxy", res);
-        return "details-galaxy";
+        return "details/details-galaxy";
     }
 
     @GetMapping("/find/galaxy/{id}/edit")
     private String editGalaxy(@PathVariable(value = "id") long id, Model model){
         if(!galaxyRepo.existsById(id)) {
-            return "find-galaxy";
+            return "find/find-galaxy";
         }
         Optional<Galaxy> galaxy = galaxyRepo.findById(id);
         ArrayList<Galaxy> res = new ArrayList<>();
         galaxy.ifPresent(res::add);
         model.addAttribute("galaxy", res);
-        return "edit-galaxy";
+        return "edit/edit-galaxy";
     }
     
     @PostMapping("/find/galaxy/{id}/edit")
@@ -92,6 +92,6 @@ public class GalaxyController {
         galaxy.setDistance(distance);
         galaxy.setType(type);
         galaxyRepo.save(galaxy);
-        return "redirect:/find";
+        return "redirect:/";
     }
 }

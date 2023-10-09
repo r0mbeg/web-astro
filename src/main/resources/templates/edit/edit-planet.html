@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>WebAstro planet details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 text-center mt-5">
+    <h1 class="text-body-emphasis">The found planet</h1>
+
+    <div class="container mt-5 mb-5">
+        <h1>Planet editing</h1>
+        <div th:each="el : ${planet}">
+            <form method="post">
+                <input type="text" th:value="${el.name}" name="name" placeholder="Name of the planet" class="form-control"><br>
+                <input type="text" th:value="${el.type}" name="type" placeholder="Type of the planet"
+                       class="form-control"><br>
+                <input type="text" th:value="${el.mass}" name="mass" placeholder="Mass of the planet"
+                       class="form-control"><br>
+                <input type="text" th:value="${el.radius}" name="radius" placeholder="Radius of the planet"
+                       class="form-control"><br>
+                <input type="text" th:value="${el.semiMajorAxis}" name="semiMajorAxis" placeholder="Semi-major axis of the planet's orbit" class="form-control"><br>
+                <input type="text" th:value="${el.orbitalEccentricity}" name="orbitalEccentricity" placeholder="Eccentricity of the planet's orbit" class="form-control"><br>
+                <input type="text" th:value="${el.starSystemName}" name="starSystemName" placeholder="Star system in which the planet is located" class="form-control"><br>
+                <button type="submit" class="btn btn-success">Edit the object</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div>
+
+
+</div>
+
+</body>
+</html>
