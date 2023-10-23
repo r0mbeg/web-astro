@@ -1,6 +1,6 @@
 package com.example.WebAstro.controllers;
 
-import com.example.WebAstro.Validator;
+import com.example.WebAstro.validation.Validator;
 import com.example.WebAstro.models.Satellite;
 import com.example.WebAstro.repos.SatelliteRepo;
 import org.springframework.beans.factory.annotation.Autowired;

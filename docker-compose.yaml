@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  web-astro:
+    container_name: web-astro
+    build: ./
+    ports:
+      - "8080:8080"
+    image: web-astro:1.0
+    depends_on:
+      - astrodb
+  astrodb:
+    container_name: astrodb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=astrodb
+    image: postgres:16.0-bullseye
