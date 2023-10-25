@@ -1,5 +1,6 @@
 package com.example.WebAstro.controllers;
 
+import com.example.WebAstro.models.Galaxy;
 import com.example.WebAstro.validation.Validator;
 import com.example.WebAstro.models.Planet;
 import com.example.WebAstro.repos.PlanetRepo;
@@ -99,5 +100,12 @@ public class PlanetController {
         return "redirect:/";
     }
 
+    @PostMapping("/find/planet/{id}/delete")
+    private String deletePlanetPost(@PathVariable(value = "id") long id,
+                                    Model model) {
+        Planet planet = planetRepo.findById(id).orElseThrow();
+        planetRepo.delete(planet);
+        return "redirect:/";
+    }
 
 }

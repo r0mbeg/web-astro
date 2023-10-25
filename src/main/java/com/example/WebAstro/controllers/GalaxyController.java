@@ -94,4 +94,12 @@ public class GalaxyController {
         galaxyRepo.save(galaxy);
         return "redirect:/";
     }
+
+    @PostMapping("/find/galaxy/{id}/delete")
+    private String deleteGalaxyPost(@PathVariable(value = "id") long id,
+                                    Model model) {
+        Galaxy galaxy = galaxyRepo.findById(id).orElseThrow();
+        galaxyRepo.delete(galaxy);
+        return "redirect:/";
+    }
 }

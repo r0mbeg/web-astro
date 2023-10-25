@@ -1,5 +1,6 @@
 package com.example.WebAstro.controllers;
 
+import com.example.WebAstro.models.Planet;
 import com.example.WebAstro.validation.Validator;
 import com.example.WebAstro.models.Satellite;
 import com.example.WebAstro.repos.SatelliteRepo;
@@ -100,5 +101,12 @@ public class SatelliteController {
         return "redirect:/";
     }
 
+    @PostMapping("/find/satellite/{id}/delete")
+    private String deleteSatellitePost(@PathVariable(value = "id") long id,
+                                    Model model) {
+        Satellite satellite = satelliteRepo.findById(id).orElseThrow();
+        satelliteRepo.delete(satellite);
+        return "redirect:/";
+    }
 
 }

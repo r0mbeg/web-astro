@@ -1,5 +1,6 @@
 package com.example.WebAstro.controllers;
 
+import com.example.WebAstro.models.Satellite;
 import com.example.WebAstro.validation.Validator;
 import com.example.WebAstro.models.Star;
 import com.example.WebAstro.repos.StarRepo;
@@ -86,6 +87,14 @@ public class StarController {
         star.setMagnitude(magnitude);
         star.setStarSystemName(starSystemName);
         starRepo.save(star);
+        return "redirect:/";
+    }
+
+    @PostMapping("/find/star/{id}/delete")
+    private String deleteStarPost(@PathVariable(value = "id") long id,
+                                       Model model) {
+        Star star = starRepo.findById(id).orElseThrow();
+        starRepo.delete(star);
         return "redirect:/";
     }
 
