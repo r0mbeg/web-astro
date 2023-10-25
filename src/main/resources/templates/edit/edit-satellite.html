@@ -11,7 +11,7 @@
     <h1 class="text-body-emphasis">The found satellite</h1>
 
     <div class="container mt-5 mb-5">
-        <h1>satellite editing</h1>
+        <h1>Satellite editing</h1>
         <div th:each="el : ${satellite}">
             <form method="post">
                 <input type="text" th:value="${el.name}" name="name" placeholder="Name of the satellite" class="form-control"><br>

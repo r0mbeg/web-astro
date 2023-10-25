@@ -8,10 +8,10 @@
 <body>
 <header th:insert="header :: header"></header>
 <div class="p-5 text-center mt-5">
-    <h1 class="text-body-emphasis">Star system search</h1>
+    <h1 class="text-body-emphasis">Star search</h1>
     <form action="/find/star" method="get">
         <input type="text" name="name" placeholder="Name of the object" class="form-control" style="width: 300px; margin:0 auto"><br>
-        <button type="submit" class="btn btn-success">Find star system</button>
+        <button type="submit" class="btn btn-success">Find star</button>
     </form>
     <div th:each="el : ${stars}" class="alert alert-info mt-2" style="width: 400px; margin:0 auto">
         <h3 th:text="${el.name}"/>
